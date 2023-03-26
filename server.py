@@ -10,15 +10,22 @@ app = Flask(__name__)
 
 AWESOMENESS = [
     'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza',
-    'oh-so-not-meh', 'brilliant', 'ducky', 'coolio', 'incredible',
-    'wonderful', 'smashing', 'lovely']
+    'oh-so-not-meh', 'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful',
+    'smashing', 'lovely'
+]
 
 
 @app.route('/')
 def start_here():
     """Home page."""
 
-    return "<!doctype html><html>Hi! This is the home page.</html>"
+    return """<!doctype html>
+    <html>
+      Hi! This is the home page.
+      <a href="http://localhost:5001/hello">click to go to hello page
+      </a>
+    </html>
+    """
 
 
 @app.route('/hello')
@@ -40,6 +47,7 @@ def say_hello():
       </body>
     </html>
     """
+    # <a href="https://www.w3schools.com">
 
 
 @app.route('/greet')
@@ -66,4 +74,4 @@ def greet_person():
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads"
     # our web app if we change the code.
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=5001)
